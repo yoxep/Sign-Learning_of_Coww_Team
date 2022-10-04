@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
 
-    <title>졸프 | 소개페이지</title>
+    <title>졸프 | 학습페이지</title>
 
     <!-- style -->
     <style type="text/css">
@@ -42,6 +42,9 @@
 
         .jumbotron{
             background-color:white;
+        }
+        .jumbotron2{
+            background-color:gray;
         }
         .navbar {
             width: 80%;
@@ -105,7 +108,10 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
             transition: all 0.5s ease-in-out;
         }
-
+        .wrap1 {
+            width: 900px;
+            margin: auto;
+        }
         .oren {
             align;
         }
@@ -131,7 +137,7 @@
                 <div class="sub-menu">
                     <ul>
                         <li>
-                            <a href="introducepage.html" class="sub-menu__content">
+                            <a href="index.html" class="sub-menu__content">
                                 <div class="wrap">
                                     <span class="icon"><i class="fas fa-home"></i></span>
                                     <span class="text">프로젝트 소개</span>
@@ -139,7 +145,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sub-menu__content">
+                            <a href="programmer.html" class="sub-menu__content">
                                 <div class="wrap">
                       <span class="icon"
                       ><i class="fas fa-volleyball-ball"></i
@@ -164,7 +170,7 @@
                 <div class="sub-menu">
                     <ul>
                         <li>
-                            <a href="test.html" class="sub-menu__content">
+                            <a href="study.html" class="sub-menu__content">
                                 <div class="wrap">
                                     <span class="icon"><i class="fas fa-home"></i></span>
                                     <span class="text">지문자</span>
@@ -234,8 +240,12 @@
     </div>
 
 </div>
-
+<div class="wrap1">
+    <h1> 학습페이지</h1>
+    <hr class="my-4">
+    </div>
 <div class="container" style="margin-bottom: 30px;">
+    <div class="jumbotron">
         <div class="row">
             <div class="col-sm-6">
                 <!--            img Label-->
@@ -272,13 +282,13 @@
             </div>
 
             <div class="col-sm-4">
-                <a id="btn_next" class="btn btn-success btn-block p-6" href="/practice?element=b">이전</a>
+                <a id="btn_next" class="btn btn-success btn-block p-6" href="main.html">이전</a>
             </div>
 
         </div>
 
     </div>
-
+</div>
 </body>
 <script>
     const content = document.querySelectorAll('.content');

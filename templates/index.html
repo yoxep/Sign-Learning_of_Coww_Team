@@ -25,12 +25,92 @@
     <!-- style -->
     <style type="text/css">
         * {
-            font-family: 'Do Hyeon', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .wrapper {
+            width: 100%;
+            background-color: #0a3d62;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .jumbotron{
+            background-color:white;
+        }
+        .navbar {
+            width: 80%;
+        }
+
+        .navbar > ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar ul li {
+            position: relative;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: #fff;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            width: 180px;
+            height: 60px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .navbar .sub-menu {
+            opacity: 0;
         }
 
         .wrap {
+            color: white;
+        }
+        .wrap1 {
             width: 900px;
             margin: auto;
+        }
+        .sub-menu {
+            position: absolute;
+            top: 60px;
+            left: 0px;
+            width: 80px;
+        }
+
+        .sub-menu__content {
+            background-color: #0a3d62;
+        }
+
+        .active {
+            font-size: 18px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a:active,
+        .navbar .sub-menu ul li a:hover,
+        .navbar .sub-menu ul li a:active {
+            background-color: #1e3799;
+        }
+
+        .navbar ul li a.content.active + .sub-menu {
+            opacity: 1;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .oren {
+            align;
         }
 
         .comment {
@@ -66,9 +146,125 @@
 </head>
 
 <body>
+<div class="wrapper">
+    <div class="navbar">
+        <!---메인 애들 밑에--->
+        <ul>
+            <li>
+                <a href="#" class="content">
+                    <div class="wrap">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="text">Coww</span>
+                    </div>
+                </a>
 
-<div class="wrap">
-    <h1>소개페이지</h1>
+                <div class="sub-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html" class="sub-menu__content">
+                                <div class="wrap">
+                                    <span class="icon"><i class="fas fa-home"></i></span>
+                                    <span class="text">프로젝트 소개</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="programmer.html" class="sub-menu__content">
+                                <div class="wrap">
+                      <span class="icon"
+                      ><i class="fas fa-volleyball-ball"></i
+                      ></span>
+                                    <span class="text">개발자 소개</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <!--학습밑애들임 -->
+            <li>
+                <a href="#" class="content">
+                    <div class="wrap">
+                        <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
+                        <span class="text">학습</span>
+                    </div>
+                </a>
+                <div class="sub-menu">
+                    <ul>
+                        <li>
+                            <a href="study.html" class="sub-menu__content">
+                                <div class="wrap">
+                                    <span class="icon"><i class="fas fa-home"></i></span>
+                                    <span class="text">지문자</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu__content">
+                                <div class="wrap">
+                      <span class="icon"
+                      ><i class="fas fa-volleyball-ball"></i
+                      ></span>
+                                    <span class="text">단어</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <!----시험밑 애들임-->
+
+            <li>
+                <a href="#" class="content">
+                    <div class="wrap">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span class="text">시험</span>
+                    </div>
+                </a>
+                <div class="sub-menu">
+                    <ul>
+
+                        <li>
+                            <a href="#" class="sub-menu__content">
+                                <div class="wrap">
+                                    <span class="icon"><i class="fas fa-utensils"></i></span>
+                                    <span class="text">지문자</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu__content">
+                                <div class="wrap">
+                      <span class="icon"
+                      ><i class="fas fa-paper-plane"></i
+                      ></span>
+                                    <span class="text">단어</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="content">
+                    <div class="wrap">
+                        <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                        <span class="text">문의사항</span>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
+</div>
+<div class="wrap1">
+    <h1>프로젝트 소개</h1>
     <hr class="my-4">
     <div class="jumbotron">
         <h1 class="display-4">Coww팀의 Sign-learning</h1>
@@ -91,7 +287,7 @@
         <p class="lead">sign-learning은 처음 상명대학교 학생들의 졸업프로젝트에 의해 만들어졌습니다.
             장애인들과의 소통을 위해 만들어졌으며 학습기능이 있고어쩌구저쩌구 잘 사용해주시길 바람
         암튼 그리고 사용하면 꼭 100만원씩 내야됨 계좌번호: 후원링크</p>
-        <a href="lalatest.html"><button type="button" class="btn btn-secondary btn-lg" >뒤로</button></a>
+        <a href="main.html"><button type="button" class="btn btn-secondary btn-lg" >처음으로</button></a>
     </div>
 
 
@@ -100,5 +296,35 @@
     </div>
 </div>
 </body>
+<script>
+    const content = document.querySelectorAll('.content');
+    const subContent = document.querySelectorAll('.sub-menu__content')
+    const ACTIVE = "active"
 
+
+    content.forEach(function (contents) {
+        contents.addEventListener("click", function () {
+
+            subContent.forEach(function (subContents) {
+                subContents.classList.remove(ACTIVE);
+            })
+            content.forEach(function (contents) {
+                contents.classList.remove(ACTIVE);
+            });
+            contents.classList.add(ACTIVE);
+        })
+        contents.classList.remove(ACTIVE);
+    })
+
+    subContent.forEach(function (subContents) {
+        subContents.addEventListener("click", function () {
+            subContent.forEach(function (subContents) {
+                subContents.classList.remove(ACTIVE);
+            })
+            subContents.classList.add(ACTIVE);
+        })
+    })
+
+
+</script>
 </html>
