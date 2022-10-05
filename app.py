@@ -1,10 +1,8 @@
 import errno
-
 from flask import Flask, url_for, render_template, Response, request, redirect, g, session
 from keras.utils.image_utils import img_to_array, load_img
 from keras.models import load_model
 import numpy as np
-import cv2
 import json
 import random
 from flask_babel import Babel, gettext
@@ -33,8 +31,6 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.5)
 
 model = load_model('model/handtrain(500(88.2)).h5')
-print("Loaded model from disk")
-
 
 # crop_img 엉키지 않게
 class Microsecond(object):
@@ -132,20 +128,20 @@ def k_list_idx(element):
 
 
 def gen(camera):
-    if not camera.isOpened():
-        raise RuntimeError("Could not start camera")
-    width = camera.get(cv2.CAP_PROP_FRAME_WIDTH)
-    height = camera.get(cv2.CAP_PROP_FRAME_HEIGHT)
-    fourcc = cv2.VideoWriter_fourcc(*"XVID")
-    fps = 30
-    out = cv2.VideoWriter('video.avi', fourcc, fps, (int(width), int(height)))
+    camera = cv2.VideoCapture(0)
+
     while camera.isOpened():
         ret, img = camera.read()
         if not ret:
             continue
+        width = camera.get(cv2.CAP_PROP_FRAME_WIDTH)
+        height = camera.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        fourcc = cv2.VideoWriter_fourcc(*"XVID")
+        fps = 30
+        out = cv2.VideoWriter('video.avi', fourcc, fps, (int(width), int(height)))
+
         img = cv2.flip(img, 1)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img = cv2.rectangle(img, (250, 250), (600, 600), (000, 51, 51), 2)
 
         result = hands.process(img)
 
@@ -186,11 +182,14 @@ def gen(camera):
 
                 mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
 
-                out.write(img)
-                key = cv2.waitKey(1) & 0xFF
-                # if the `q` key was pressed, break from the loop
-                if key == ord("q"):
-                    break
+        ret, jpeg = cv2.imencode('.jpg', img)
+        frame = jpeg.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+        out.write(img)
+        if cv2.waitKey(1) == ord('q'):
+            break
 
 
 def make_quiz():
